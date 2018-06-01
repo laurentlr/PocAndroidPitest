@@ -35,7 +35,15 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    testCompile "org.junit.vintage:junit-vintage-engine:${junitVintageVersion}"
+
+    testCompile "org.junit.platform:junit-platform-runner:${junitPlatformVersion}"
+    testCompile "org.junit.platform:junit-platform-launcher:${junitPlatformVersion}"
+    testCompile "org.junit.platform:junit-platform-commons:${junitPlatformVersion}"
+    testCompile "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
 }
+
 
 pitest {
     targetClasses = ['com.russier.laurent.*']  //by default "${project.group}.*"

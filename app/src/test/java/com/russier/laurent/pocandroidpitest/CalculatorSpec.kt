@@ -5,7 +5,11 @@ import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.given
 import org.jetbrains.spek.api.dsl.it
 import org.jetbrains.spek.api.dsl.on
+import org.jetbrains.spek.api.dsl.xit
+import org.junit.platform.runner.JUnitPlatform
+import org.junit.runner.RunWith
 
+@RunWith(JUnitPlatform::class)
 object CalculatorSpec : Spek({
 
     given("a calculator") {
@@ -20,6 +24,10 @@ object CalculatorSpec : Spek({
 
                 it("should return their sum") {
                     assertThat(sum).isEqualTo(3)
+                }
+
+                xit("should fail") {
+                    assertThat(true).isFalse()
                 }
 
             }

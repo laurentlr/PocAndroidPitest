@@ -5,6 +5,9 @@ buildscript {
     ext.mannodermausVersion = '1.0.30'
     ext.spekVersion = '1.1.5'
     ext.assertJVersion = '3.9.1'
+    ext.junitPlatformVersion = '1.1.0-RC1'
+    ext.junitVintageVersion = '5.1.0-RC1'
+    ext.junitJupiterVersion = '5.1.0-RC1'
 
     repositories {
         jcenter()
