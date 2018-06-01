@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'de.mannodermaus.android-junit5'
+apply plugin: "pl.droidsonroids.pitest"
 
 android {
     compileSdkVersion 27
@@ -30,7 +31,21 @@ dependencies {
     testImplementation "org.jetbrains.spek:spek-junit-platform-engine:${spekVersion}"
     testCompileOnly "de.mannodermaus.gradle.plugins:android-junit5-embedded-runtime:${mannodermausVersion}"
     testImplementation "org.assertj:assertj-core:${assertJVersion}"
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+pitest {
+    targetClasses = ['com.russier.laurent.*']  //by default "${project.group}.*"
+    threads = 4
+    outputFormats = ['XML', 'HTML']
+    timestampedReports = false
+    enableDefaultIncrementalAnalysis = true
+    jvmArgs = ['-Xmx1024m']
+}
+
+task mut {
+    dependsOn(":app:pitest")
 }
